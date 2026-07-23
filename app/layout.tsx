@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`h-full antialiased ${spaceGrotesk.variable} ${zeroArea.variable} ${notoSans.variable}`}
+      className={`h-full antialiased ${spaceGrotesk.variable} ${zeroArea.variable} ${notoSans.variable} scroll-smooth`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
