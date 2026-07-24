@@ -4,11 +4,12 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { FloatingSquares } from "../ui/box-animation";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
+  { name: "Home", href: "/" },
   { name: "About", href: "#about" },
-  { name: "Projects", href: "#projects" },
+  { name: "Projects", href: "/projects" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -142,6 +143,14 @@ export const Navbar = () => {
             exit="exit"
             className="absolute top-0 left-0 w-full h-screen bg-[#161A1D] flex flex-col items-center justify-center gap-8 md:hidden -z-10"
           >
+            <FloatingSquares top="8%" right="4%" zIndex={0} />
+            {/* 1. Top Right: Frames the navigation menu */}
+            <FloatingSquares top="1%" left="1%" zIndex={0} />
+            <FloatingSquares top="50%" right="1%" zIndex={0} />
+            {/* 2. Bottom Right: Anchors the large teal circle to the bottom corner */}
+            <FloatingSquares top="auto" bottom="8%" right="7%" zIndex={2} />
+            {/* 3. Bottom Left: Fills the empty dark void under your buttons */}
+
             {navLinks.map((link) => (
               <motion.div key={link.name} variants={linkVariants}>
                 <Link

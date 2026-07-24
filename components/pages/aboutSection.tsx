@@ -1,7 +1,7 @@
 export default function AboutSection() {
   return (
-    <section id="about" className="py-24 ">
-      <div className=" grid md:grid-cols-2 gap-17 items-center">
+    <section id="about" className="py-24">
+      <div className=" grid md:grid-cols-2 gap-17 items-center ">
         {/* Left: Image */}
         <div className="relative">
           <div className="absolute -inset-4 bg-primary/10 rounded-2xl -z-10" />
@@ -18,7 +18,7 @@ export default function AboutSection() {
         </div>
 
         {/* Right: Content */}
-        <div>
+        <div className="block z-10">
           <p className="text-primary font-semibold uppercase tracking-wider text-sm mb-3">
             About Me
           </p>
