@@ -74,7 +74,7 @@ const experience: ExperienceItem[] = [
 function Experience() {
   return (
     <section id="experience" className="py-16">
-      <div className="max-w-5xl mx-auto px-6 md:px-0">
+      <div className="max-w-5xl mx-auto ">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
