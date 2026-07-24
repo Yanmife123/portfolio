@@ -59,12 +59,12 @@ export default function HeroSection() {
   const typedText = useTypewriter(phrases);
 
   return (
-    <div className=" py-16 relative ">
+    <div className=" py-16 relative max-sm:h-[600px] ">
       {/* <FloatingSquares top={10} right={5} zIndex={0} />
       <FloatingSquares bottom={10} right={10} zIndex={2} className="" /> */}
 
       <div className="flex h-full z-10 md:flex-row flex-col gap-8">
-        <div className="flex-1 flex flex-col md:items-center items-center gap-6">
+        <div className="flex-1 flex flex-col md:items-center items-center gap-6 justify-center">
           <motion.div
             className="text-sm font-semibold bg-[rgba(0,161,155,0.12)] text-primary border border-primary rounded-full px-4 py-1 w-fit mb-4"
             animate={{

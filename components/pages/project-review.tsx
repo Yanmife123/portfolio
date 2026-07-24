@@ -70,7 +70,7 @@ const columnThree: Project[] = [
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="rounded-lg border border-secondary/10 bg-secondary/5 overflow-hidden hover:border-primary/40 transition-colors shadow-sm hover:shadow-xl hover:shadow-primary/5 group">
+    <div className="rounded-lg border border-secondary/10 hover:bg-secondary/5 overflow-hidden hover:border-primary/40 transition-colors shadow-sm hover:shadow-xl hover:shadow-primary/5 group">
       {project.image && (
         <div className="aspect-[4/3] overflow-hidden">
           <img

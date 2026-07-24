@@ -8,6 +8,9 @@ import { DataStream } from "@/components/testing/nodeGem";
 import { FloatingSquares } from "@/components/ui/box-animation";
 import Experience from "@/components/pages/experience";
 import HomeProjectGrid from "@/components/pages/project-review";
+import Skills from "@/components/pages/skill-set";
+import Testimonials from "@/components/pages/testimo";
+import Contact from "@/components/pages/contact-section";
 
 export default function Home() {
   return (
@@ -75,6 +78,8 @@ export default function Home() {
       </div>
       <div>
         <HomeProjectGrid />
+        <Testimonials />
+        <Contact />
       </div>
     </div>
   );

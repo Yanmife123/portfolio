@@ -95,7 +95,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </div>
       ) : project.variant === "image-focus" ? (
         <div className="relative rounded-lg overflow-hidden group">
-          <div className="aspect-[4/3] overflow-hidden bg-secondary/5">
+          <div className="aspect-[4/3] overflow-hidden bg-secondary/5 hover:border-primary/40 ">
             {project.image && (
               <img
                 src={project.image}
@@ -125,7 +125,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           </div>
         </div>
       ) : (
-        <div className="rounded-lg border border-secondary/10 p-6 hover:bg-secondary/5 transition-colors duration-300 group">
+        <div className="rounded-lg border border-secondary/10 p-6 hover:bg-secondary/5 hover:border-primary/40  transition-colors duration-300 group hover:shadow-primary/5 hover:shadow-lg">
           <div className="flex items-start justify-between mb-6">
             <span className="text-xs font-mono text-primary">
               {project.number}
@@ -162,7 +162,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 function Projects() {
   return (
-    <section id="projects" className="py-24 px-6 md:px-16">
+    <section id="projects" className="py-24 ">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

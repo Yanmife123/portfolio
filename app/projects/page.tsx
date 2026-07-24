@@ -25,7 +25,7 @@ export default function HomeProjectsGrid() {
       {/* 5. Top Mid-Left: Floating gently high above the main text box */}
       <FloatingSquares top="12%" left="40%" right="auto" zIndex={0} />
 
-      <div>
+      <div className="relative z-10">
         <Projects />
       </div>
     </div>
