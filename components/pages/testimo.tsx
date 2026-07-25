@@ -72,7 +72,7 @@ function Testimonials() {
   const scrollingSet = [...testimonials, ...testimonials]; // seamless loop
 
   return (
-    <section id="testimonials" className="py-24 relative">
+    <section id="testimonials" className="pt-24 relative">
       {/* 1. Top Right: Frames the navigation menu */}
       <FloatingSquares top="8%" right="4%" zIndex={0} />
       {/* 1. Top Right: Frames the navigation menu */}

@@ -10,22 +10,21 @@ import Experience from "@/components/pages/experience";
 import HomeProjectGrid from "@/components/pages/project-review";
 import Skills from "@/components/pages/skill-set";
 import Testimonials from "@/components/pages/testimo";
-import Contact from "@/components/pages/contact-section";
 
 export default function Home() {
   return (
     <div className=" text-white ">
       <div className="relative pt-24 py-14">
-        <DataStream />
-        {/* <GeometricMatrix /> */}
-        <div className="relative w-full max-w-7xl mx-auto sm:px-19 px-6 ">
+        {/* <DataStream /> */}
+        <GeometricMatrix />
+        <div className="relative w-full max-w-7xl mx-auto lg:px-19 md:px-15  px-6 ">
           <div className="">
             <HeroSection />
             {/* <AboutSection /> */}
           </div>
         </div>
       </div>
-      <div className="relative w-full max-w-7xl mx-auto sm:px-19 px-6 ">
+      <div className="relative w-full max-w-7xl mx-auto lg:px-19 md:px-15  px-6 ">
         {/* 1. Top Right: Frames the navigation menu */}
         <FloatingSquares top="8%" right="4%" zIndex={0} />
         {/* 1. Top Right: Frames the navigation menu */}
@@ -51,7 +50,7 @@ export default function Home() {
           {/* <Projects /> */}
         </div>
       </div>
-      <div className="relative w-full max-w-7xl mx-auto sm:px-19 px-6 ">
+      <div className="relative w-full max-w-7xl mx-auto lg:px-19 md:px-15  px-6 ">
         {/* 1. Top Right: Frames the navigation menu */}
         <FloatingSquares top="8%" right="4%" zIndex={0} />
         {/* 1. Top Right: Frames the navigation menu */}
@@ -79,7 +78,6 @@ export default function Home() {
       <div>
         <HomeProjectGrid />
         <Testimonials />
-        <Contact />
       </div>
     </div>
   );

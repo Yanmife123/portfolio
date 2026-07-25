@@ -73,7 +73,7 @@ const experience: ExperienceItem[] = [
 
 function Experience() {
   return (
-    <section id="experience" className="py-16">
+    <section id="experience" className="pt-8">
       <div className="max-w-5xl mx-auto ">
         {/* Header */}
         <motion.div

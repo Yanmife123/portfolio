@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Mail, ExternalLink, FileText } from "lucide-react";
 import Link from "next/link";
 
-function Contact() {
+function FooterSection() {
   return (
     <section id="contact" className=" pt-24">
       <div className=" mx-auto">
@@ -25,10 +25,9 @@ function Contact() {
             <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight mb-6">
               Let's Build Something
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-              Open to opportunities in frontend and full-stack development —
-              Next.js, Laravel, and TypeScript. Let's build something great
-              together.
+            <p className="text-gray-400 text-base md:text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+              Have an exciting project or role in mind? Let’s bring it to life
+              with scalable backend systems and seamless frontend interfaces.
             </p>
 
             {/* Buttons */}
@@ -42,7 +41,7 @@ function Contact() {
               </Link>
 
               <Link
-                href="/resume"
+                href="/YANMIFE-ADEGBOLA-Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-secondary/5 border border-secondary/10 text-white px-7 py-3.5 rounded-xl font-semibold hover:bg-secondary/10 transition-colors w-full sm:w-auto justify-center"
@@ -51,14 +50,14 @@ function Contact() {
                 Review Resume
               </Link>
 
-              <Link
-                href="/resume.pdf"
-                download
+              {/* <Link
+                href="/YANMIFE-ADEGBOLA-Resume.pdf"
+                download=""
                 className="flex items-center gap-2 bg-secondary/5 border border-secondary/10 text-white px-7 py-3.5 rounded-xl font-semibold hover:bg-secondary/10 transition-colors w-full sm:w-auto justify-center"
               >
                 <FileText size={18} />
                 Download Resume
-              </Link>
+              </Link> */}
             </div>
 
             {/* Footer info */}
@@ -80,4 +79,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default FooterSection;

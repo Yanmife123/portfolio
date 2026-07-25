@@ -4,7 +4,7 @@ import { FloatingSquares } from "@/components/ui/box-animation";
 
 export default function HomeProjectsGrid() {
   return (
-    <div className="relative w-full max-w-7xl mx-auto sm:px-19 px-6 ">
+    <div className="relative w-full max-w-7xl mx-auto lg:px-19 md:px-15  px-6 ">
       {/* 1. Top Right: Frames the navigation menu */}
       <FloatingSquares top="8%" right="4%" zIndex={0} />
       {/* 1. Top Right: Frames the navigation menu */}

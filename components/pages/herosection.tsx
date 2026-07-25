@@ -47,13 +47,10 @@ function AnimatedShapes() {
 }
 export default function HeroSection() {
   const phrases: Segment[][] = [
+    [{ text: "I'm " }, { text: "Yanmife Adegbola", className: "text-accent" }],
     [
       { text: "Shipping Ideas Into " },
       { text: "Reality", className: "text-primary" },
-    ],
-    [
-      { text: "I am a " },
-      { text: "Software Engineer", className: "text-accent" },
     ],
   ];
   const typedText = useTypewriter(phrases);

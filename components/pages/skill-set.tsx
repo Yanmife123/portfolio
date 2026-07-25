@@ -75,7 +75,7 @@ function Marquee() {
   const icons = [...marqueeIcons, ...marqueeIcons]; // duplicate for seamless loop
 
   return (
-    <div className="relative overflow-hidden py-8 border-y border-secondary/10">
+    <div className="relative max-md:hidden overflow-hidden py-8 border-y border-secondary/10">
       {/* fade edges */}
       <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
       <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
@@ -124,8 +124,8 @@ function Skills() {
       <Marquee />
 
       {/* Categorized breakdown */}
-      <div className="max-w-6xl mx-auto px-6 md:px-16 mt-20">
-        <div className="grid md:grid-cols-3 gap-10">
+      <div className="max-w-6xl mx-auto px-6 md:px-16 mt-20 md:hidden">
+        <div className="grid md:grid-cols-3 grid-cols-2 gap-10">
           {categories.map((category, catIndex) => (
             <motion.div
               key={category.label}

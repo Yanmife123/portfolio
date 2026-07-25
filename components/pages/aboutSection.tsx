@@ -40,24 +40,6 @@ export default function AboutSection() {
           </p>
 
           {/* Skills */}
-          <div className="flex flex-wrap gap-3 mb-8">
-            {[
-              "React",
-              "TypeScript",
-              "Next.js",
-              "Tailwind",
-              "Laravel",
-              "PHP",
-              "MySQL",
-            ].map((skill) => (
-              <span
-                key={skill}
-                className="px-4 py-2 rounded-full border border-secondary/30 text-sm text-secondary"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
 
           {/* CTA */}
           <a

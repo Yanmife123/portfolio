@@ -3,6 +3,7 @@ import { Space_Grotesk, Noto_Sans } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
 import { Navbar } from "@/components/pages/navbar";
+import FooterSection from "@/components/pages/footer";
 
 export const metadata: Metadata = {
   title: {
@@ -45,6 +46,7 @@ export default function RootLayout({
         <div className=" text-white bg-dark">
           <Navbar />
           <div> {children}</div>
+          <FooterSection />
         </div>
       </body>
     </html>
