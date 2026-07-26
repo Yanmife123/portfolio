@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import {
   SiNextdotjs,
   SiReact,
@@ -16,94 +17,121 @@ import {
   SiPython,
   SiDotnet,
   SiSharp,
+  // SiAmazonaws,
+  SiHtml5,
+  SiCss,
 } from "react-icons/si";
 
-const marqueeIcons = [
-  SiNextdotjs,
-  SiReact,
-  SiTypescript,
-  SiJavascript,
-  SiTailwindcss,
-  SiLaravel,
-  SiPhp,
-  SiPostgresql,
-  SiGit,
-  SiTanstack,
-  SiDotnet,
-  SiSharp,
-];
-
-type SkillCategory = {
-  label: string;
-  skills: { name: string; icon: React.ElementType }[];
+type Skill = {
+  name: string;
+  icon: React.ElementType;
+  color: string;
 };
 
-const categories: SkillCategory[] = [
-  {
-    label: "Frontend",
-    skills: [
-      { name: "Next.js", icon: SiNextdotjs },
-      { name: "React", icon: SiReact },
-      { name: "TypeScript", icon: SiTypescript },
-      { name: "JavaScript", icon: SiJavascript },
-      { name: "Tailwind CSS", icon: SiTailwindcss },
-      { name: "TanStack", icon: SiTanstack },
-    ],
-  },
-  {
-    label: "Backend",
-    skills: [
-      { name: "Laravel", icon: SiLaravel },
-      { name: "PHP", icon: SiPhp },
-      { name: ".NET", icon: SiDotnet },
-      { name: "C#", icon: SiSharp },
-      { name: "Python", icon: SiPython },
-    ],
-  },
-  {
-    label: "Database & Tools",
-    skills: [
-      { name: "PostgreSQL", icon: SiPostgresql },
-      { name: "MySQL", icon: SiMysql },
-      { name: "Git", icon: SiGit },
-      { name: "Figma", icon: SiFigma },
-    ],
-  },
+const skills: Skill[] = [
+  { name: "Next.js", icon: SiNextdotjs, color: "#ffffff" },
+  { name: "React", icon: SiReact, color: "#61dafb" },
+  { name: "TypeScript", icon: SiTypescript, color: "#3178c6" },
+  { name: "JavaScript", icon: SiJavascript, color: "#f7df1e" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#38bdf8" },
+  { name: "HTML", icon: SiHtml5, color: "#e34f26" },
+  { name: "CSS", icon: SiCss, color: "#1572b6" },
+  { name: "Laravel", icon: SiLaravel, color: "#ff2d20" },
+  { name: "PHP", icon: SiPhp, color: "#777bb4" },
+  { name: ".NET", icon: SiDotnet, color: "#512bd4" },
+  { name: "C#", icon: SiSharp, color: "#9b4993" },
+  { name: "Python", icon: SiPython, color: "#3776ab" },
+  { name: "PostgreSQL", icon: SiPostgresql, color: "#4169e1" },
+  { name: "MySQL", icon: SiMysql, color: "#4479a1" },
+  { name: "Git", icon: SiGit, color: "#f05032" },
+  // { name: "AWS", icon: SiAmazonaws, color: "#ff9900" },
+  { name: "TanStack", icon: SiTanstack, color: "#ff4154" },
+  { name: "Figma", icon: SiFigma, color: "#f24e1e" },
 ];
 
-function Marquee() {
-  const icons = [...marqueeIcons, ...marqueeIcons]; // duplicate for seamless loop
+function HexCell({ skill, index }: { skill: Skill; index: number }) {
+  const [hovered, setHovered] = useState(false);
+  const Icon = skill.icon;
 
   return (
-    <div className="relative max-md:hidden overflow-hidden py-8 border-y border-secondary/10">
-      {/* fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
-
-      <motion.div
-        className="flex gap-16 w-max"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{
-          duration: 25,
-          repeat: Infinity,
-          ease: "linear",
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.4, delay: (index % 8) * 0.05 }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="relative flex-1 min-w-0 cursor-pointer"
+      style={{
+        aspectRatio: "0.87",
+        clipPath:
+          "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+      }}
+    >
+      <div
+        className="absolute inset-0 transition-all duration-300"
+        style={{
+          background: hovered ? "rgba(0,161,155,0.08)" : "#141414",
+          border: hovered
+            ? "2px solid #00a19b"
+            : "1px solid rgba(228,221,211,0.1)",
+          boxShadow: hovered ? "0 0 20px rgba(0,161,155,0.4)" : "none",
+          clipPath:
+            "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
         }}
-      >
-        {icons.map((Icon, i) => (
-          <Icon
-            key={i}
-            className="w-10 h-10 text-secondary/40 hover:text-primary transition-colors flex-shrink-0"
-          />
-        ))}
-      </motion.div>
-    </div>
+      />
+      <div className="relative h-full flex flex-col items-center justify-center gap-1.5 px-2">
+        <Icon
+          className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 transition-transform duration-300"
+          style={{
+            color: skill.color,
+            transform: hovered ? "scale(1.15)" : "scale(1)",
+          }}
+        />
+        <span className="text-[10px] md:text-[11px] lg:text-xs font-medium text-center text-gray-300 leading-tight">
+          {skill.name}
+        </span>
+      </div>
+    </motion.div>
   );
 }
 
-function Skills() {
+function MobileChip({ skill, index }: { skill: Skill; index: number }) {
+  const Icon = skill.icon;
   return (
-    <section id="skills" className="py-24">
-      <div className="max-w-6xl mx-auto px-6 md:px-16">
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{ duration: 0.4, delay: (index % 6) * 0.05 }}
+      className="flex items-center gap-2 bg-secondary/5 border border-secondary/10 rounded-xl px-4 py-3"
+    >
+      <Icon className="w-5 h-5 flex-shrink-0" style={{ color: skill.color }} />
+      <span className="text-sm text-gray-300">{skill.name}</span>
+    </motion.div>
+  );
+}
+
+// Builds alternating rows: 7 items, 6 items, 7 items, 6 items...
+function buildHoneycombRows(items: Skill[]) {
+  const rows: Skill[][] = [];
+  let i = 0;
+  let toggle = true;
+  while (i < items.length) {
+    const size = toggle ? 7 : 6;
+    rows.push(items.slice(i, i + size));
+    i += size;
+    toggle = !toggle;
+  }
+  return rows;
+}
+
+function Skills() {
+  const rows = buildHoneycombRows(skills);
+
+  return (
+    <section id="skills" className="py-24 px-6 md:px-16">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -118,41 +146,34 @@ function Skills() {
             Skills & <span className="text-primary">Tech Stack</span>
           </h2>
         </motion.div>
-      </div>
 
-      {/* Full-bleed marquee */}
-      <Marquee />
+        {/* Mobile: wrapped chip grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 md:hidden">
+          {skills.map((skill, i) => (
+            <MobileChip key={skill.name} skill={skill} index={i} />
+          ))}
+        </div>
 
-      {/* Categorized breakdown */}
-      <div className="max-w-6xl mx-auto px-6 md:px-16 mt-20 md:hidden">
-        <div className="grid md:grid-cols-3 grid-cols-2 gap-10">
-          {categories.map((category, catIndex) => (
-            <motion.div
-              key={category.label}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: catIndex * 0.1 }}
+        {/* Tablet/Desktop: percentage-based honeycomb, fits container width exactly */}
+        <div className="hidden md:flex flex-col gap-0 max-w-4xl mx-auto">
+          {rows.map((row, rowIndex) => (
+            <div
+              key={rowIndex}
+              className="flex -mt-3 lg:-mt-4 first:mt-0"
+              style={{
+                width: `${(row.length / 7) * 100}%`,
+                margin: "0 auto",
+                marginTop: rowIndex === 0 ? 0 : undefined,
+              }}
             >
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-secondary/50 mb-6">
-                {category.label}
-              </h3>
-              <div className="space-y-4">
-                {category.skills.map((skill) => (
-                  <div
-                    key={skill.name}
-                    className="flex items-center gap-3 group"
-                  >
-                    <div className="w-9 h-9 rounded-lg bg-secondary/5 border border-secondary/10 flex items-center justify-center group-hover:border-primary/40 group-hover:bg-primary/5 transition-colors">
-                      <skill.icon className="w-4 h-4 text-secondary/70 group-hover:text-primary transition-colors" />
-                    </div>
-                    <span className="text-sm text-gray-300 group-hover:text-white transition-colors">
-                      {skill.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+              {row.map((skill, i) => (
+                <HexCell
+                  key={skill.name}
+                  skill={skill}
+                  index={rowIndex * 7 + i}
+                />
+              ))}
+            </div>
           ))}
         </div>
       </div>

@@ -35,14 +35,26 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
+function TestimonialCard({
+  testimonial,
+  index,
+}: {
+  testimonial: Testimonial;
+  index: number;
+}) {
   return (
-    <div className="flex-shrink-0 w-[380px]  border border-secondary/10 rounded-2xl p-8 hover:border-primary/40 transition-colors">
-      <Quote className="w-8 h-8 text-primary/40 mb-6" />
-      <p className="text-gray-300 leading-relaxed mb-8 text-[15px]">
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="border border-secondary/10 rounded-2xl p-8 hover:border-primary/40 transition-colors h-full flex flex-col"
+    >
+      <Quote className="w-8 h-8 text-primary/40 mb-6 flex-shrink-0" />
+      <p className="text-gray-300 leading-relaxed mb-8 text-[15px] flex-1">
         "{testimonial.quote}"
       </p>
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 pt-6 border-t border-secondary/10">
         <div className="w-11 h-11 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-semibold text-sm flex-shrink-0">
           {testimonial.avatar ? (
             <img
@@ -64,25 +76,19 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 function Testimonials() {
-  const scrollingSet = [...testimonials, ...testimonials]; // seamless loop
-
   return (
-    <section id="testimonials" className="pt-24 relative">
-      {/* 1. Top Right: Frames the navigation menu */}
+    <section id="testimonials" className="py-24 relative">
       <FloatingSquares top="8%" right="4%" zIndex={0} />
-      {/* 1. Top Right: Frames the navigation menu */}
       <FloatingSquares top="1%" left="1%" zIndex={0} />
       <FloatingSquares top="50%" right="1%" zIndex={0} />
-      {/* 2. Bottom Right: Anchors the large teal circle to the bottom corner */}
       <FloatingSquares top="auto" bottom="8%" right="7%" zIndex={2} />
-      {/* 3. Bottom Left: Fills the empty dark void under your buttons */}
 
-      <div className="max-w-6xl mx-auto px-6 md:px-16">
+      <div className="max-w-6xl mx-auto px-6 md:px-16 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -97,26 +103,16 @@ function Testimonials() {
             What People <span className="text-primary">Say</span>
           </h2>
         </motion.div>
-      </div>
 
-      {/* Auto-scrolling row */}
-      <div className="relative overflow-hidden">
-        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-background to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-background to-transparent z-10" />
-
-        <motion.div
-          className="flex gap-6 w-max"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{
-            duration: 40,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        >
-          {scrollingSet.map((testimonial, i) => (
-            <TestimonialCard key={i} testimonial={testimonial} />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+          {testimonials.map((testimonial, index) => (
+            <TestimonialCard
+              key={testimonial.name}
+              testimonial={testimonial}
+              index={index}
+            />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
