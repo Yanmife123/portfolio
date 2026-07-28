@@ -56,7 +56,7 @@ export default function HeroSection() {
   const typedText = useTypewriter(phrases);
 
   return (
-    <div className=" py-16 relative max-sm:h-[600px] ">
+    <div className=" py-16 relative max-sm:h-[450px]  ">
       {/* <FloatingSquares top={10} right={5} zIndex={0} />
       <FloatingSquares bottom={10} right={10} zIndex={2} className="" /> */}
 

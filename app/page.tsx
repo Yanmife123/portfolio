@@ -13,7 +13,7 @@ import Testimonials from "@/components/pages/testimo";
 
 export default function Home() {
   return (
-    <div className=" text-white ">
+    <div className=" text-white overflow-x-hidden">
       <div className="relative pt-24 py-14">
         {/* <DataStream /> */}
         <GeometricMatrix />

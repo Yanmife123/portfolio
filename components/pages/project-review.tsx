@@ -3,14 +3,18 @@ import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import { FiArrowRight } from "react-icons/fi";
 import {
-  SiDotnet,
-  SiSharp,
-  SiTypescript,
   SiNextdotjs,
   SiReact,
-  SiPython,
-  SiPostgresql,
+  SiTypescript,
+  SiJavascript,
+  SiPhp,
+  SiLaravel,
+  SiMysql,
+  SiSupabase,
   SiTailwindcss,
+  SiFramer,
+  SiJsonwebtokens,
+  SiShadcnui,
 } from "react-icons/si";
 
 type Project = {
@@ -21,50 +25,68 @@ type Project = {
   image?: string;
 };
 
+// Column 1: 3 Projects
 const columnOne: Project[] = [
   {
-    title: "Expense Tracker",
-    description: "Personal finance app with .NET backend and Zustand state.",
-    icons: [SiDotnet, SiSharp, SiPostgresql],
-    githubUrl: "https://github.com/you/expense-tracker",
+    title: "Lecturer Loan System",
+    description:
+      "Digital loan management for Redeemer's Cooperative with multi-tier approval routing.",
+    icons: [SiNextdotjs, SiLaravel, SiPhp, SiMysql, SiShadcnui],
+    image: "/projects/llms.png",
+    githubUrl: "https://github.com/Yanmife123/Lecturer_loan_management_system",
   },
   {
-    title: "Next Playground",
-    description: "A collection of projects built while learning Next.js.",
-    icons: [SiNextdotjs, SiReact, SiTailwindcss],
-    githubUrl: "https://github.com/you/next-playground",
+    title: "Ezone Commerce",
+    description:
+      "Full-stack e-commerce app with custom PHP REST API backend, JWT auth, and React state.",
+    icons: [SiReact, SiPhp, SiJsonwebtokens, SiTailwindcss],
+    image: "/projects/ezone.png",
+    githubUrl: "https://github.com/Yanmife123/Ezone_Commerce",
+  },
+  {
+    title: "Redeemer's SPE Chapter",
+    description:
+      "Custom landing page featuring chapter mission, dynamic event listings, and contact workflow.",
+    icons: [SiReact, SiJavascript, SiTailwindcss],
+    image: "/projects/spe.png",
   },
 ];
 
+// Column 2: 2 Projects
 const columnTwo: Project[] = [
-  {
-    title: "Notes Management System",
-    description: "A minimal, distraction-free notes app.",
-    icons: [SiNextdotjs, SiTypescript],
-    image: "/projects/notebook.jpg",
-    githubUrl: "https://github.com/you/notes-system",
-  },
-  {
-    title: "Captcha Resolver",
-    description: "CAPTCHA recognition microservice deployed on AWS.",
-    icons: [SiDotnet, SiPython],
-    githubUrl: "https://github.com/you/captcha-resolver",
-  },
-];
-
-const columnThree: Project[] = [
   {
     title: "CAF App",
     description:
-      "Frontend + design for a full product, connected to REST APIs.",
-    icons: [SiReact, SiTypescript],
-    githubUrl: "https://github.com/you/caf-app",
+      "Campus dining platform with real-time visibility into menus, queue status, and pricing.",
+    icons: [SiReact, SiJavascript, SiTailwindcss],
+    image: "/projects/caf.png",
   },
   {
     title: "Oresma Logistics",
-    description: "Scalable logistics platform with admin & rider dashboards.",
-    icons: [SiNextdotjs, SiTypescript, SiTailwindcss],
-    githubUrl: "https://github.com/you/oresma",
+    description:
+      "Scalable fleet platform featuring role-based dashboards and real-time map tracking.",
+    icons: [SiNextdotjs, SiTypescript, SiShadcnui, SiTailwindcss],
+    image: "/projects/ors.png",
+  },
+];
+
+// Column 3: 2 Projects
+const columnThree: Project[] = [
+  {
+    title: "Golobe Airline",
+    description:
+      "Travel booking platform with flight/hotel search interfaces and Supabase dynamic routing.",
+    icons: [SiNextdotjs, SiTypescript, SiSupabase, SiShadcnui],
+    image: "/projects/golobe.png",
+    githubUrl: "https://github.com/Yanmife123/Golobe_version2",
+  },
+  {
+    title: "Ascension Clone",
+    description:
+      "Sleek, motion-driven landing page recreation exploring complex UI animations.",
+    icons: [SiReact, SiFramer, SiTailwindcss],
+    image: "/projects/as.png",
+    githubUrl: "https://github.com/Yanmife123/Ascension",
   },
 ];
 
@@ -97,7 +119,7 @@ function ProjectCard({ project }: { project: Project }) {
         <p className="text-xs text-gray-400 leading-relaxed mb-4">
           {project.description}
         </p>
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
           {project.icons.map((Icon, i) => (
             <div
               key={i}
@@ -121,8 +143,6 @@ function InfiniteColumn({
   direction?: "up" | "down";
   speed?: number;
 }) {
-  // Quadruple the array to ensure there is an absolute surplus of height.
-  // This completely stops the "disappearing" issue at the end of the scroll.
   const duplicatedProjects = [
     ...projects,
     ...projects,
@@ -134,8 +154,6 @@ function InfiniteColumn({
     <div className="w-full relative overflow-visible">
       <motion.div
         animate={{
-          // Because we multiplied the array by 4, -50% perfectly targets the exact start
-          // of the 3rd duplicated block, ensuring a completely invisible snap.
           y: direction === "up" ? ["0%", "-50%"] : ["-50%", "0%"],
         }}
         transition={{
@@ -172,7 +190,6 @@ export default function HomeProjectsGrid() {
           </h2>
         </motion.div>
 
-        {/* Height reduced to 550px for a more compact view */}
         <div
           className="h-[550px] overflow-hidden flex"
           style={{

@@ -18,12 +18,11 @@ const experience: ExperienceItem[] = [
     company: "CAF App",
     location: "Remote",
     description:
-      "Handled the design and frontend development of the CAF app, building a responsive UI connected to backend APIs using React and JavaScript.",
+      "Handled the design and frontend development of the CAF app, building a responsive UI connected to backend APIs.",
     tags: ["React", "JavaScript", "REST APIs"],
     achievements: [
       "Designed and implemented the app's core UI/UX from the ground up",
       "Integrated frontend features with backend APIs for real-time data handling",
-      "Built reusable, responsive components to maintain design consistency",
       "Optimized app performance and state management for a smoother user experience",
     ],
   },
@@ -33,23 +32,12 @@ const experience: ExperienceItem[] = [
     company: "Oresma Logistics",
     location: "Lagos, Nigeria",
     description:
-      "Developed a comprehensive logistics platform using Next.js and TypeScript, built for scalability across admin and rider-facing workflows.",
-    tags: [
-      "Next.js",
-      "TypeScript",
-      "REST APIs",
-      "Tailwind",
-      "shadcn/ui",
-      "TanStack",
-      "Git",
-      "map-based APIs",
-    ],
+      "Developed a logistics platform using Next.js and TypeScript, built for scalability across admin and rider-facing workflows.",
+    tags: ["Next.js", "TypeScript", "Tailwind", "REST APIs"],
     achievements: [
       "Integrated frontend features with backend services using map-based APIs for logistics operations",
       "Implemented an admin dashboard for managing delivery requests, users, and rider accounts",
       "Created a rider-facing dashboard for request acceptance and workflow updates",
-      "Collaborated with backend developers to ensure seamless API integration",
-      "Emphasized clean UI design, responsiveness, and efficient state management",
     ],
   },
   {
@@ -58,23 +46,19 @@ const experience: ExperienceItem[] = [
     company: "Abode Asset Limited",
     location: "Lagos, Nigeria",
     description:
-      "Contributed to the development and maintenance of software applications under senior developers' guidance, while also building and maintaining websites as part of system updates and specific internal programs.",
-    tags: ["Next.js", "TypeScript", "Tailwind", "shadcn/ui", "TanStack", "Git"],
+      "Contributed to the development and maintenance of software applications, while building and maintaining websites for system updates and internal programs.",
+    tags: ["Next.js", "TypeScript", "Tailwind", "shadcn/ui"],
     achievements: [
       "Built several websites as updates to existing systems and for specific internal programs",
       "Fixed and maintained existing company websites using Next.js, TypeScript, and Tailwind CSS",
-      "Used shadcn/ui and TanStack to build accessible, well-structured UI components and data-driven views",
-      "Participated in writing, testing, and debugging code to enhance system functionality",
-      "Collaborated with the software team on remote development tasks and technical discussions",
-      "Applied best practices in version control (Git), documentation, and problem-solving",
+      "Used shadcn/ui and TanStack to build accessible, well-structured UI components",
     ],
   },
 ];
-
 function Experience() {
   return (
-    <section id="experience" className="pt-8">
-      <div className="max-w-5xl mx-auto ">
+    <section id="experience" className="pt-8 z-10">
+      <div className="max-w-5xl mx-auto z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -102,7 +86,7 @@ function Experience() {
             return (
               <div
                 key={item.role}
-                className="relative flex items-start mb-12 md:mb-16 last:mb-0"
+                className="relative flex items-start mb-12 md:mb-16 last:mb-0 z-10"
               >
                 {/* Dot: left on mobile, centered on desktop */}
                 <motion.div

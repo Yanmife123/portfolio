@@ -10,7 +10,7 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Projects", href: "/projects" },
-  { name: "Resume", href: "/YANMIFE-ADEGBOLA-Resume.pdf" },
+  { name: "Resume", href: "/Adegbola_Yanmife_Software_Developer_CV.pdf" },
 ];
 
 export const Navbar = () => {
@@ -61,7 +61,7 @@ export const Navbar = () => {
       // initial="hidden"
       // animate="visible"
       // variants={navVariants}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300  ${
         scrolled
           ? "bg-[#161A1D]/80 backdrop-blur-md border-[rgba(228,221,211,0.05)] py-4"
           : "bg-transparent py-6"

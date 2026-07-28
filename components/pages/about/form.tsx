@@ -57,7 +57,7 @@ export default function ContactFormSection() {
   return (
     <section
       className="relative w-full max-w-6xl mx-auto  pt-20 text-white"
-      id="contact-form"
+      id="contact"
     >
       <div className="mx-auto px-6 md:px-16">
         <motion.div

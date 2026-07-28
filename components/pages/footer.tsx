@@ -41,7 +41,7 @@ function FooterSection() {
               </Link>
 
               <Link
-                href="/YANMIFE-ADEGBOLA-Resume.pdf"
+                href="/Adegbola_Yanmife_Software_Developer_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-secondary/5 border border-secondary/10 text-white px-7 py-3.5 rounded-xl font-semibold hover:bg-secondary/10 transition-colors w-full sm:w-auto justify-center"

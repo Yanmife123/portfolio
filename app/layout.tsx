@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`h-full antialiased ${spaceGrotesk.variable} ${zeroArea.variable} ${notoSans.variable} scroll-smooth`}
+      className={`h-full antialiased ${spaceGrotesk.variable} ${zeroArea.variable} ${notoSans.variable} `}
     >
       <body className="min-h-full flex flex-col">
         <div className=" text-white bg-dark">
