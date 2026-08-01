@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import { FiArrowUpRight, FiExternalLink } from "react-icons/fi";
 import { useState } from "react";
+import Image from "next/image";
+
 
 type Project = {
   title: string;
@@ -119,10 +121,12 @@ const projects: Project[] = [
 function TechPill({ slug }: { slug: string }) {
   return (
     <span className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wide text-secondary/70 border-b border-secondary/20 pb-0.5">
-      <img
+      <Image
         src={`https://cdn.simpleicons.org/${slug}`}
         alt=""
-        className="w-3 h-3 opacity-70"
+        width={16}
+        height={16}
+        className="opacity-70"
       />
       {slug}
     </span>
@@ -199,10 +203,13 @@ function ImageFocusCard({ project }: { project: Project }) {
                 className="w-6 h-6 rounded bg-secondary/10 flex items-center justify-center flex-shrink-0"
                 title={slug}
               >
-                <img
+                <Image
                   src={`https://cdn.simpleicons.org/${slug}`}
                   alt={slug}
-                  className="w-3.5 h-3.5 opacity-80"
+                  width={16}
+                  height={16}
+                  unoptimized
+                  className="opacity-80"
                 />
               </div>
             ))}

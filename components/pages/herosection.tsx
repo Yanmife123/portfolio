@@ -4,47 +4,47 @@
 import { motion } from "framer-motion";
 import { useTypewriter, Segment } from "@/components/hooks/Typewriter";
 
-function AnimatedShapes() {
-  return (
-    <>
-      <motion.div
-        className="absolute top-[10%] left-[50%] -ml-[120px] md:left-auto md:ml-0 md:right-[15%] md:top-[15%] h-[240px] w-[240px] lg:h-[340px] lg:w-[340px] bg-[#00a19b] opacity-90"
-        animate={{
-          borderRadius: [
-            "62% 38% 55% 45% / 45% 55% 45% 55%",
-            "40% 60% 45% 55% / 55% 40% 60% 45%",
-            "62% 38% 55% 45% / 45% 55% 45% 55%",
-          ],
-          scale: [1, 1.05, 1],
-          rotate: [0, 8, 0],
-        }}
-        transition={{
-          duration: 8,
-          ease: "easeInOut",
-          repeat: Infinity,
-        }}
-      />
+// function AnimatedShapes() {
+//   return (
+//     <>
+//       <motion.div
+//         className="absolute top-[10%] left-[50%] -ml-[120px] md:left-auto md:ml-0 md:right-[15%] md:top-[15%] h-[240px] w-[240px] lg:h-[340px] lg:w-[340px] bg-[#00a19b] opacity-90"
+//         animate={{
+//           borderRadius: [
+//             "62% 38% 55% 45% / 45% 55% 45% 55%",
+//             "40% 60% 45% 55% / 55% 40% 60% 45%",
+//             "62% 38% 55% 45% / 45% 55% 45% 55%",
+//           ],
+//           scale: [1, 1.05, 1],
+//           rotate: [0, 8, 0],
+//         }}
+//         transition={{
+//           duration: 8,
+//           ease: "easeInOut",
+//           repeat: Infinity,
+//         }}
+//       />
 
-      <motion.div
-        className="absolute top-[50%] left-[50%] ml-[20px] md:left-auto md:ml-0 md:right-[5%] md:top-[45%] h-[120px] w-[120px] lg:h-[160px] lg:w-[160px] bg-[#5fc7c2] opacity-[0.55]"
-        animate={{
-          borderRadius: [
-            "45% 55% 62% 38% / 55% 45% 55% 45%",
-            "60% 40% 45% 55% / 45% 60% 40% 55%",
-            "45% 55% 62% 38% / 55% 45% 55% 45%",
-          ],
-          scale: [1, 0.95, 1],
-          rotate: [0, -10, 0],
-        }}
-        transition={{
-          duration: 10,
-          ease: "easeInOut",
-          repeat: Infinity,
-        }}
-      />
-    </>
-  );
-}
+//       <motion.div
+//         className="absolute top-[50%] left-[50%] ml-[20px] md:left-auto md:ml-0 md:right-[5%] md:top-[45%] h-[120px] w-[120px] lg:h-[160px] lg:w-[160px] bg-[#5fc7c2] opacity-[0.55]"
+//         animate={{
+//           borderRadius: [
+//             "45% 55% 62% 38% / 55% 45% 55% 45%",
+//             "60% 40% 45% 55% / 45% 60% 40% 55%",
+//             "45% 55% 62% 38% / 55% 45% 55% 45%",
+//           ],
+//           scale: [1, 0.95, 1],
+//           rotate: [0, -10, 0],
+//         }}
+//         transition={{
+//           duration: 10,
+//           ease: "easeInOut",
+//           repeat: Infinity,
+//         }}
+//       />
+//     </>
+//   );
+// }
 export default function HeroSection() {
   const phrases: Segment[][] = [
     [{ text: "I'm " }, { text: "Yanmife Adegbola", className: "text-accent" }],
@@ -56,7 +56,7 @@ export default function HeroSection() {
   const typedText = useTypewriter(phrases);
 
   return (
-    <div className=" py-16 relative max-sm:h-[450px]  ">
+    <div className=" py-16 relative max-sm:h-112.5  ">
       {/* <FloatingSquares top={10} right={5} zIndex={0} />
       <FloatingSquares bottom={10} right={10} zIndex={2} className="" /> */}
 

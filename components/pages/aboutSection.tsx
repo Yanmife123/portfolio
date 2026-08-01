@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function AboutSection() {
   return (
     <section id="about" className="py-24">
@@ -5,10 +7,13 @@ export default function AboutSection() {
         {/* Left: Image */}
         <div className="relative">
           <div className="absolute -inset-4 bg-primary/10 rounded-2xl -z-10" />
-          <img
+          <Image
             src="/me.jpeg"
             alt="Portrait"
-            className="rounded-2xl w-full object-cover aspect-[4/5] grayscale hover:grayscale-0 transition-all duration-500"
+            width={400}
+            height={300}
+            // unoptimized
+            className="rounded-2xl w-full object-cover aspect-4/5 grayscale hover:grayscale-0 transition-all duration-500"
           />
           {/* Floating badge */}
           <div className="absolute -bottom-6 -right-6 bg-secondary text-dark px-5 py-3 rounded-xl shadow-lg">

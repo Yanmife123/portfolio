@@ -2,6 +2,8 @@
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import { FiArrowRight } from "react-icons/fi";
+import Image from "next/image";
+
 import {
   SiNextdotjs,
   SiReact,
@@ -94,10 +96,13 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <div className="rounded-lg border border-secondary/10 hover:bg-secondary/5 overflow-hidden hover:border-primary/40 transition-colors shadow-sm hover:shadow-xl hover:shadow-primary/5 group">
       {project.image && (
-        <div className="aspect-[4/3] overflow-hidden">
-          <img
+        <div className="aspect-4/3 overflow-hidden">
+          <Image
             src={project.image}
             alt={project.title}
+            width={400}
+            height={300}
+            // unoptimized
             className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
           />
         </div>
